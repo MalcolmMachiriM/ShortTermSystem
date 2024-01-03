@@ -1,14 +1,18 @@
-﻿namespace ShortTerm.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ShortTerm.Data
 {
     public class Claim
     {
         public int Id { get; set; }
-        public int Id { get; set; }
-        public int Id { get; set; }
-        public int Id { get; set; }
-        public int Id { get; set; }
-        public int Id { get; set; }
-        public int Id { get; set; }
-        public int Id { get; set; }
+
+        [ForeignKey(name:"ClientId")]
+        public Client Client { get; set; }
+        public int ClientId { get; set; }
+        public int Product { get; set; }
+        public DateTime DateSubmitted { get; set; }
+        public bool? Approved { get; set; }
+        public string ApprovedBy { get; set; }
+        public DateTime DateApproved { get; set; }
     }
 }
