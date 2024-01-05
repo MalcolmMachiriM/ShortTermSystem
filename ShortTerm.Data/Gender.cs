@@ -1,8 +1,8 @@
 ﻿namespace ShortTerm.Data
 {
-    public class Gender
+    public class Gender : BaseEntity
     {
-        public int Id { get; set; }
         public string Sex { get; set; }
+
     }
 }

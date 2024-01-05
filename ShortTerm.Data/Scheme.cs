@@ -1,8 +1,7 @@
 ﻿namespace ShortTerm.Data
 {
-    public class Scheme
+    public class Scheme :BaseEntity
     {
-        public int Id { get; set; }
         public string RegNo { get; set; }
         public string RegName { get; set; }
         public string Taxno { get; set; }

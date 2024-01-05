@@ -2,9 +2,8 @@
 
 namespace ShortTerm.Data
 {
-    public class Policy
+    public class Policy : BaseEntity
     {
-        public int Id { get; set; }
         public DateTime ApplicationDate { get; set; }
 
         [ForeignKey("ProductGroup")]

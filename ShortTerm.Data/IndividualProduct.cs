@@ -2,9 +2,8 @@
 
 namespace ShortTerm.Data
 {
-    public class IndividualProduct
+    public class IndividualProduct : BaseEntity
     {
-        public int Id { get; set; }
 
         [ForeignKey("ProductGroupId")]
         public ProductGroup ProductGroup { get; set; }

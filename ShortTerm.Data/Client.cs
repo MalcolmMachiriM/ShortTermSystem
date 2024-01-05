@@ -2,9 +2,8 @@
 
 namespace ShortTerm.Data
 {
-    public class Client
+    public class Client : BaseEntity
     {
-        public int Id { get; set; }
         public string RegNo { get; set; }
         public int ClientTypeId { get; set; }
         public int TitleId { get; set; }
@@ -34,9 +33,7 @@ namespace ShortTerm.Data
         public int HghestQualificationId { get; set; }
         public bool Active { get; set; }
         public int AddedBy { get; set; }
-        public DateTime DateAdded { get; set; }
         public int ModifiedBy { get; set; }
-        public DateTime DateModified { get; set; }
         public int ContactPersonId { get; set; }
         public string NationalId { get; set; }
         public int Status { get; set; }

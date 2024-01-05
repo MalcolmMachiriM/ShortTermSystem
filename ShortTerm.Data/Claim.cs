@@ -2,9 +2,8 @@
 
 namespace ShortTerm.Data
 {
-    public class Claim
+    public class Claim : BaseEntity
     {
-        public int Id { get; set; }
 
         [ForeignKey(name:"ClientId")]
         public Client Client { get; set; }
