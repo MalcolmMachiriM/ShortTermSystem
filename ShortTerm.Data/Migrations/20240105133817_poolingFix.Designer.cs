@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShortTerm.Data;
 
@@ -11,9 +12,10 @@ using ShortTerm.Data;
 namespace ShortTerm.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240105133817_poolingFix")]
+    partial class poolingFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,22 +49,6 @@ namespace ShortTerm.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "73ad90b0-1728-44eb-1995-283f579e4764",
-                            ConcurrencyStamp = "38db94e2-d78d-48e3-a16d-760b0df8d876",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "73ad90b0-1234-7896-9587-283f579e4764",
-                            ConcurrencyStamp = "deccd6c3-c9a1-4588-9037-eb3cd6db4d5c",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -152,18 +138,6 @@ namespace ShortTerm.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "e18dc662-c956-45fc-a834-63128024ce27",
-                            RoleId = "73ad90b0-1728-44eb-1995-283f579e4764"
-                        },
-                        new
-                        {
-                            UserId = "73ad90b0-4238-44eb-9587-283f579e4764",
-                            RoleId = "73ad90b0-1234-7896-9587-283f579e4764"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -377,6 +351,7 @@ namespace ShortTerm.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
@@ -403,48 +378,6 @@ namespace ShortTerm.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "e18dc662-c956-45fc-a834-63128024ce27",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "5156a32c-b051-459b-b88d-e9c04747e50e",
-                            DateJoined = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "admin@localhost.com",
-                            EmailConfirmed = true,
-                            FirstName = "System",
-                            LastName = "Admin",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKCGXSq7m2IfQIN3+K14SuEJd+fxlhlC9XqBK71gVvXKS1CUAdGY5vbeiyHHP6Sviw==",
-                            PhoneNumber = "",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "6df52743-fba7-4774-8fca-429905e0d155",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@localhost.com"
-                        },
-                        new
-                        {
-                            Id = "73ad90b0-4238-44eb-9587-283f579e4764",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "399eac04-f99a-417c-9997-af32cb31c611",
-                            DateJoined = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "user@localhost.com",
-                            EmailConfirmed = true,
-                            FirstName = "System",
-                            LastName = "User",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "User@LOCALHOST.COM",
-                            NormalizedUserName = "User@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBlszTz/PQ23qSkxQ1b0QPCg+aiFvVR1miLxdEMaHOnjCTMMy/7rK8fBxBhc7f/uOQ==",
-                            PhoneNumber = "",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "0fd008a8-c42c-422a-b983-14466aabfb87",
-                            TwoFactorEnabled = false,
-                            UserName = "user@localhost.com"
-                        });
                 });
 
             modelBuilder.Entity("ShortTerm.Data.Gender", b =>

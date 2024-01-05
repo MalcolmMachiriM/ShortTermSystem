@@ -6,7 +6,7 @@ namespace ShortTerm.Data
     {
         public DateTime ApplicationDate { get; set; }
 
-        [ForeignKey("ProductGroup")]
+        [ForeignKey("ProductGroupId")]
         public ProductGroup ProductGroup { get; set; }
         public int ProductGroupId { get; set; }
         public int Product { get; set; }
@@ -14,7 +14,7 @@ namespace ShortTerm.Data
         public int FirstName { get; set; }
         public int Surname { get; set; }
         public int NationalID { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
         public double AnnualSalary { get; set; }
         public int PremiumTerm { get; set; }

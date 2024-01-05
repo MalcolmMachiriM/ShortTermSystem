@@ -10,7 +10,7 @@ namespace ShortTerm.Data
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [ForeignKey(name: "GenderId")]
         public Gender Gender { get; set; }
